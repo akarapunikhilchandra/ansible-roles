@@ -21,4 +21,4 @@
 - name: installing and loading mysql schema
   ansible.builtin.import_role:
     name: common
-    tasks_from: systemd-setup
+    tasks_from: installandload-mysql
