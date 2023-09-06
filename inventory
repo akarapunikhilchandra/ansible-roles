@@ -6,3 +6,6 @@ catalogue.joindevops.cloud
 
 [web]
 web.joindevops.cloud
+
+[redis]
+redis.joindevops.cloud
