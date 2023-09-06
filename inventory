@@ -9,3 +9,9 @@ web.joindevops.cloud
 
 [redis]
 redis.joindevops.cloud
+
+[cart]
+cart.joindevops.cloud
+
+[user]
+user.joindevops.cloud
