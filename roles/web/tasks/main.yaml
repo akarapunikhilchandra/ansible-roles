@@ -2,31 +2,34 @@
   ansible.builtin.yum:
     name: nginx
     state: installed
-
-- name: starting and enabling nginx
+- name: start and enable nginx
   ansible.builtin.service:
     name: nginx
     state: started
-    enabled: true
-
-- name: Remove file 
+    enabled: yes
+- name: remove html directory
   ansible.builtin.file:
-    path: /usr/share/nginx/html/*
+    path: /usr/share/nginx/html
     state: absent
+- name: create html directory
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: directory
 
-- name: unarchive 
+- name: download web artifact
+  ansible.builtin.get_url:
+    url: https://roboshop-builds.s3.amazonaws.com/web.zip
+    dest: /tmp
+
+- name: extract catalogue artifact
   ansible.builtin.unarchive:
-    src: https://roboshop-builds.s3.amazonaws.com/web.zip
+    src: /tmp/web.zip
     dest: /usr/share/nginx/html
     remote_src: yes
 
-- name: copy file from
-  ansible.builtin.copy:
+- name: copy roboshop.conf
+  ansible.builtin.template:
     src: roboshop.conf
-    dest: /etc/nginx/default.d/roboshop.conf 
-
-
-- name: restarting nginx
-  ansible.builtin.service:
-    name: nginx
-    state: restarted   
+    dest: /etc/nginx/default.d/roboshop.conf
+  notify:
+  - restart nginx
