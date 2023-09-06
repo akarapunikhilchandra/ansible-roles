@@ -22,3 +22,11 @@ mysql.joindevops.cloud
 [shipping]
 shipping.joindevops.cloud
 
+[rabbitmq]
+rabbitmq.joindevops.cloud
+
+[payments]
+payments.joindevops.cloud
+
+[web]
+web.joindevops.cloud
