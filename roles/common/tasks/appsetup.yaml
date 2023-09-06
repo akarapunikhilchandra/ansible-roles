@@ -24,14 +24,10 @@
     path: /app
     state: directory
 
-- name: download the "{{component}}" code and extract
+- name: "download the {{component}} code and extract"
   ansible.builtin.unarchive:
-    src: https://roboshop-builds.s3.amazonaws.com/"{{component}}".zip
+    src: "https://roboshop-builds.s3.amazonaws.com/{{component}}.zip"
     dest: /app
     remote_src: yes
 
-- name: install dependencies
-  ansible.builtin.command: npm install
-  args:   
-    chdir: /app
 
