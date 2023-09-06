@@ -4,5 +4,3 @@ SHIPPING_HOST: shipping.joindevops.cloud
 CART_HOST: cart.joindevops.cloud
 PAYMENT_HOST: payment.joindevops.cloud
 
-vars:
-  USER_HOST: web.joindevops.cloud
