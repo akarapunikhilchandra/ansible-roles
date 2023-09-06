@@ -1,2 +1,5 @@
 [mongodb]
 mongodb.joindevops.cloud
+
+[catalogue]
+catalogue.joindevops.cloud
